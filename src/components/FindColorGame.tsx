@@ -1,21 +1,15 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-
 import Cell from './Cell';
 import GameStatus from './GameStatus';
 import { useEffect, useReducer } from "react";
-import styles from '../styles/FindColorGame.module.css';
-
+import styled from "styled-components";
 
 const GAME_FRAME_SIZE:number = 360;
 const CELL_MARGIN: number = 4;
-
-// const StyledFindColorGame = styled.div`
-//     width: ${GAME_FRAME_SIZE}px;
-//     display: flex;
-//     flex-flow: row wrap;
-// `;
+const StyledFindColorGame = styled.div`
+    width: ${GAME_FRAME_SIZE}px;
+    display: flex;
+    flex-flow: row wrap;
+`;
 
 function initialGameStatus() {
   let stage = 1;
@@ -140,8 +134,7 @@ function getCellSize(axisCount: number) {
   let realGameFrame = GAME_FRAME_SIZE - (axisCount) * CELL_MARGIN;
   return Math.floor(realGameFrame / axisCount);
 }
-function reducer2(state:any, action:any) {
-}
+
 
 function FindColorGame() {
   const [gameStatus, dispatch] = useReducer(reducer, initialGameStatus());
@@ -158,7 +151,7 @@ function FindColorGame() {
       return () => clearTimeout(timeout);
     }
 
-  }, [gameStatus.time]);
+  }, [gameStatus]);
   const onCorrect = () => {
     dispatch({ type: 'CORRECT' });
   };
@@ -182,9 +175,9 @@ function FindColorGame() {
   return (
     <div>
       <GameStatus stage={gameStatus.stage} time={gameStatus.time} score={gameStatus.score} />
-      <div className={styles.Board_wrapper}>
+      <StyledFindColorGame>
         {renderingCell()}
-      </div>
+      </StyledFindColorGame>
     </div>
   );
 }
