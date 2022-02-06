@@ -1,21 +1,3 @@
-// import styled from "styled-components";
-
-
-// const StyledCell = styled.div`
-//   width: ${(props) => props.cellSize};
-//   height: ${(props) => props.cellSize};
-//   margin: 2px; 
-//   background-color: ${(props) => props.backgroundColor};
-// `;
-// function Cell({ color, cellSize, onClick }) {
-//   return (
-//     <StyledCell cellSize={cellSize} backgroundColor={color} onClick={onClick}>
-//     </StyledCell>
-//   );
-// }
-
-// export default Cell;
-
 interface CellInfo{
   color: string;
   cellSize: string;
