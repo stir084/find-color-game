@@ -138,9 +138,7 @@ function getCellSize(axisCount: number) {
 
 function FindColorGame() {
   const [gameStatus, dispatch] = useReducer(reducer, initialGameStatus());
-  useEffect(() => {
-    dispatch({ type: 'INIT_GAME_STATUS' });
-  }, []);
+ 
   useEffect(() => {
 
     if (gameStatus.time === 0) {
