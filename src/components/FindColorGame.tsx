@@ -91,8 +91,6 @@ interface stateType {
 }
 function reducer(state:stateType, action:Action) {
   switch (action.type) {
-    case 'INIT_GAME_STATUS':
-      return initialGameStatus();
     case 'CORRECT':
       return levelUpStage(state, action);
     case 'INCORRECT':
